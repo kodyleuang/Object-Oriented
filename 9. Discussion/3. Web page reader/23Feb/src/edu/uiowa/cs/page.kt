@@ -14,7 +14,7 @@ fun wordsInPage(place: String): Int {
     do {
         val line = reader?.readLine()
         val words = line?.split(Regex("\\s+"))
-        val aWords = words?.filter { it == "a" }
+        val aWords = words?.filter { it.startsWith("a") }
 
         val size = aWords?.size ?: 0
         count += size

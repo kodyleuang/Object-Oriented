@@ -60,7 +60,7 @@ fun main(args: Array<String>) {
     val L = """here we have a list
             of words with possibly different
             lengths and even words that might repeat"""     //Triple quotes to use multiline instead of one
-            .split(Regex("\\s+"))       //Splits by the spaces
+            .split(Regex("\\s+"))       //Splits by all white spaces
     val M = L.groupBy { word:String -> word[0] }        // groupBy method groups the words by the first letter (in this case) word[0]
     println(M) // M is a map
     // prints {h=[here, have], w=[we, words, with, words],
