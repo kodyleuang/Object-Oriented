@@ -14,19 +14,18 @@ fun oddLengthWords(input:String): List<String> {
 }
 
 fun mostCommon(input: Collection<Int>): Set<Int> {
-    /* this is a hard problem -- to solve this, you should
-    create a number of variables, where each variable is assigned
-    by collection methods (some use lambdas) applied to input
-    and/or previously assigned variables: the idea is to solve
-    this problem in series of steps, each getting you further
-     progress to the solution; recommended is to print each
-    variable during debugging.
-
-    in a sample solution, these were the collection methods used:
-    toList(), map(), sum(), zip(), toSet(), sortedBy(), filter()
-    */
-
-    return emptySet()
+    val a = input.toList()
+    val b = a.sortedBy { it }
+    val c= b.toSet()
+    //makes a list of lists with the common numbers grouped together
+    val d = b.groupBy { it }.map { it.value }
+    //Determines the number of occurrence a number show up
+    val e = d.map{ it.sumBy { it }.div(it.first()) }
+    val f = c.zip(e)
+    //Finds the most occurred numbers in the list of Pairs
+    val g = f.filter { it.second==e.max() }
+    val h = g.map { it.first }.toSet()
+    return h
 }
 
 fun flatsum(inputlist: List<Any>): Int {
