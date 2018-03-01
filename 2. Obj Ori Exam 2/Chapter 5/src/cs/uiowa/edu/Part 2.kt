@@ -79,12 +79,14 @@ fun main(args: Array<String>) {
 
 //Zip method
 fun main(args: Array<String>) {
-    val a = listOf(10,20,30,40)
+    val a = listOf(10,20,30,40,"apple","banana","cat", listOf(1,2,"a","b"))
     val b = "one two three four".split(' ')
     val c = a.zip(b)        //with zip() you can merge two lists of the same size into a single list of pairs:
     println(c)
     // prints [(10, one), (20, two), (30, three), (40, four)]
 }
+
+
 
 /*
 //sortedBy() method
@@ -127,3 +129,4 @@ fun main(args: Array<String>) {
     println(numsInL)
     //[5, 6, 7]
 }*/
+

@@ -19,8 +19,11 @@ fun mostCommon(input: Collection<Int>): Set<Int> {
     val c= b.toSet()
     //makes a list of lists with the common numbers grouped together
     val d = b.groupBy { it }.map { it.value }
+    println("d = $d")
     //Determines the number of occurrence a number show up
     val e = d.map{ it.sumBy { it }.div(it.first()) }
+    println("e = $e")
+    println("hype ${d.map{ it.sumBy { it }}}")
     val f = c.zip(e)
     //Finds the most occurred numbers in the list of Pairs
     val g = f.filter { it.second==e.max() }
@@ -29,14 +32,28 @@ fun mostCommon(input: Collection<Int>): Set<Int> {
 }
 
 fun flatsum(inputlist: List<Any>): Int {
-    // this problem can't be solved without recursion, so the challenge
-    // is to use just one recursive call to flatsum(); the trick is
-    // to use the filterIsInstance<T>() method, where T is the type of
-    // item to be selected; the sum() method is also handy
-
-    // for convenience, the "base case" (first line of function) is
-    // given to you
-
+    var sum = 0
     if (inputlist.isEmpty()) return 0
-    return 0
+    val numbers = inputlist.filterIsInstance<Int>()
+    //If nothing was filtered out add up all the Integers
+    if (numbers.size==inputlist.size) {
+        sum = numbers.sum()
+        return sum
+    }
+    //Else something was Filtered recursion takes place
+    else {
+        //Creates a List of the different types of elements in the list
+        var list = inputlist.groupBy { it.javaClass.kotlin }.map { it.value }
+        //Checks for Strings in the inputlist
+        val letters = inputlist.filterIsInstance<String>()
+        //if the strings are equal then there does not exist an Int which can be added so return 0
+        if(letters.size == inputlist.size) return 0
+        //Checks for Lists within the List
+        val filtLists = inputlist.filterIsInstance<List<Any>>()
+        //If there are List within a List replaces "list" to be able to recurse through that list
+        if(filtLists == inputlist) list = filtLists
+
+        sum = list.sumBy { v -> flatsum(v)}
+    }
+    return sum
 }
