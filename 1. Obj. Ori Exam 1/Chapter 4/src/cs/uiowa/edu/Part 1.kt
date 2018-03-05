@@ -4,7 +4,7 @@ package cs.uiowa.edu
 fun gettwo(p:List<String>): Pair<String,List<String>>{
     val a = p.first()       //Gets the first element in a list
     val b = p[1]
-    val c = a+b             // Does a concatination of the first 2 strings
+    val c = a+b             // Does a concatenation of the first 2 strings
     val remainder = p.drop(2)           //2 elements already used so drop them
     return Pair(c,remainder)       //Returns the pair needed
 }

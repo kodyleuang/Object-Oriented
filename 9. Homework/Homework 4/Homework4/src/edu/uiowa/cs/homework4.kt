@@ -15,18 +15,19 @@ fun oddLengthWords(input:String): List<String> {
 
 fun mostCommon(input: Collection<Int>): Set<Int> {
     val a = input.toList()
+    //Sorts the numbers lowest to highest
     val b = a.sortedBy { it }
+    //Turns the list into a set for use of Pairing later
     val c= b.toSet()
-    //makes a list of lists with the common numbers grouped together
+    //Makes a list of lists<Int> with the common numbers grouped together
     val d = b.groupBy { it }.map { it.value }
-    println("d = $d")
-    //Determines the number of occurrence a number show up
+    //Determines how many times a number occurs in the list
     val e = d.map{ it.sumBy { it }.div(it.first()) }
-    println("e = $e")
-    println("hype ${d.map{ it.sumBy { it }}}")
+    //Creates a Pair of where the pair is Pair<Number,Occurrences>
     val f = c.zip(e)
     //Finds the most occurred numbers in the list of Pairs
     val g = f.filter { it.second==e.max() }
+    //Takes the first element in a pair (the number with the most occurrences) puts it into a set
     val h = g.map { it.first }.toSet()
     return h
 }

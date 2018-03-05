@@ -40,6 +40,8 @@ class Person(val name:String, val Id:Int){
 fun main(args: Array<String>) {
     val p = Person("Alfred", 1)
     println(p.name)
+    //Alfred
     val s = Person.nameid(p)
     println(s)
+    // Alfred .. 1
 }
