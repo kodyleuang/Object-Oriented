@@ -2,17 +2,14 @@ package cs.uiowa.edu
 /*
 //Elvis Operator
 fun eqshow(v: String?): Boolean {
-    return (v ?: 2) == (if (v==null) 2 else v)
+    return (v ?: 2) == (if (v==null) 1 else v)
 }
 fun main(args: Array<String>) {
     println(eqshow(null))
+        //False
     println(eqshow("Hello"))
-}
-/*
-    >>>true
-    >>>true
- */
-*/
+        //True
+}*/
 
 /*
 fun ox(K: List<String?>?, b:Int?): String? {
@@ -26,17 +23,13 @@ fun ox(K: List<String?>?, b:Int?): String? {
 fun main(args: Array<String>) {
     var test: List<String?>? = null
     println(ox(test,2))
+        //null
     test = listOf("Hello",null,null,"World")
     println(ox(test,3))
+        //World
     println(ox(test,1))
-}
-
-/*
-    >>>null
-    >>>World
-    >>>null
-*/
-*/
+        //null
+}*/
 
 /*
 //if x happens to be null use the ?.

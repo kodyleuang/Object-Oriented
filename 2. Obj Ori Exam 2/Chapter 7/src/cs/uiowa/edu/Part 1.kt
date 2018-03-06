@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
     (b as B).x() // Why?
 }*/
 
-/*
+
 //CompareTo operation example
 class Person(val name: String, val Id: Int):
         Comparable<Person>{
@@ -55,9 +55,9 @@ fun main(args: Array<String>) {
     val T = listOf(p,r,q).sorted()
     println(T)
         //[Person[Diane,91], Person[Gary,23], Person[Gary,23]]
-}*/
+}
 
-
+/*
 //Delegation Example
 class PersonRegistry {
     var M = mutableMapOf<String,Any>()
@@ -75,4 +75,4 @@ fun main(args: Array<String>) {
     println(P.M)
         //{name=jin, id=34}
         //This means it replaces the original P.M list so it Will Not have more than one element
-}
+}*/

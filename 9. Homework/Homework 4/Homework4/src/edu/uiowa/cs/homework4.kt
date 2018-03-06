@@ -35,6 +35,7 @@ fun mostCommon(input: Collection<Int>): Set<Int> {
 fun flatsum(inputlist: List<Any>): Int {
     var sum = 0
     if (inputlist.isEmpty()) return 0
+    //Filters the elements in a list that are not Int
     val numbers = inputlist.filterIsInstance<Int>()
     //If nothing was filtered out add up all the Integers
     if (numbers.size==inputlist.size) {
